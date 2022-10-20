@@ -10,7 +10,6 @@ class Lecture(models.Model):
         Course,
         on_delete=models.CASCADE,
         related_name="lectures",
-        null=True,
     )
     name = models.CharField(max_length=30)
 
@@ -22,7 +21,7 @@ class Slide(models.Model):
     lecture = models.OneToOneField(
         Lecture,
         on_delete=models.CASCADE,
-        null=True,
+        primary_key=True,
     )
     name = models.CharField(max_length=30)
     link = models.URLField()
@@ -35,7 +34,7 @@ class Assignment(models.Model):
     lecture = models.OneToOneField(
         Lecture,
         on_delete=models.CASCADE,
-        null=True,
+        primary_key=True,
     )
     name = models.CharField(max_length=30)
     link = models.URLField()
